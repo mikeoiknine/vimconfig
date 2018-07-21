@@ -1,0 +1,121 @@
+# regular fg/bg
+Bold               none   none   bold
+Conceal            none   none
+Directory          none   none   bold
+EndOfBuffer        none   none
+Ignore             none   none
+Italic             none   none   italic
+ModeMsg            none   none
+MoreMsg            none   none
+NonText            none   none
+Normal             gry3   gry0
+Question           none   none
+Terminal           none   none
+Title              none   none   bold
+Underlined         none   none   underline
+
+# soft fg
+Comment            gry2   none
+CursorLineNr       gry2   none
+FoldColumn         gry2   none
+LineNr             gry2   none
+SignColumn         gry2   none
+
+# reverse hard
+Cursor             gryc   gry0   reverse
+IncSearch          gryc   gry0   reverse
+TermCursor         gryc   gry0   reverse
+
+# reverse normal
+PmenuSel           gry3   gry0   reverse
+StatusLine         gry3   gry0   reverse
+StatusLineTerm     gry3   gry0   reverse
+TabLineSel         gry3   gry0   reverse
+
+# reverse soft
+VertSplit          gry2   gry0   reverse
+Folded             gry2   gry0   reverse
+TermCursorNC       gry2   gry0   reverse
+Visual             gry2   gry0   reverse
+VisualNOS          gry2   gry0   reverse
+
+# highlit background
+ColorColumn        none   gry1
+CursorColumn       none   gry1
+CursorLine         none   gry1
+DiffChange         none   gry1
+Pmenu              gry3   gry1
+QuickFixLine       none   gry1
+StatusLineNC       gry3   gry1
+StatusLineTermNC   gry3   gry1
+TabLine            gry3   gry1
+ToolbarButton      gry3   gry1   bold
+WildMenu           gry3   gry1
+
+# solid
+PmenuSbar          gry2   gry2
+PmenuThumb         gry3   gry3
+TabLineFill        gry1   gry1
+ToolbarLine        gry1   gry1
+
+# red names
+Function           red_   none
+Identifier         red_   none
+
+# bold red types
+StorageClass       red_   none   bold
+Structure          red_   none   bold
+Type               red_   none   bold
+Typedef            red_   none   bold
+
+# reverse red warnings/deletions
+DiffDelete         red_   gry0   reverse
+DiffRemoved        red_   gry0   reverse
+Error              red_   gry0   reverse
+ErrorMsg           red_   gry0   reverse
+TooLong            red_   gry0   reverse
+WarningMsg         red_   gry0   reverse
+
+# green actions
+Conditional        gren   none
+Exception          gren   none
+Keyword            gren   none
+Label              gren   none
+Operator           gren   none
+Repeat             gren   none
+Statement          gren   none
+
+# bold green meta-actions
+Define             gren   none   bold
+Include            gren   none   bold
+Macro              gren   none   bold
+PreCondit          gren   none   bold
+PreProc            gren   none   bold
+
+# reverse green additions
+DiffAdd            gren   gry0   reverse
+DiffAdded          gren   gry0   reverse
+
+# blue constants
+Boolean            blue   none
+Character          blue   none
+Constant           blue   none
+Float              blue   none
+Number             blue   none
+String             blue   none
+
+# bold blue special elements
+Debug              blue   none   bold
+Delimiter          blue   none   bold
+Special            blue   none   bold
+SpecialChar        blue   none   bold
+SpecialComment     blue   none   bold
+SpecialKey         blue   none   bold
+Tag                blue   none   bold
+Todo               blue   none   bold
+
+# reverse blue spellcheck
+SpellBad           blue   gry0   reverse
+SpellLocal         blue   gry0   reverse
+SpellCap           blue   gry0   reverse
+SpellRare          blue   gry0   reverse
