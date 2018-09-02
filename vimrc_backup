@@ -7,9 +7,6 @@ let g:go_bin_path="D:/mikeo/gocode/bin"                 " Path to $GOBIN -> bin 
 " Using vim-plug -> https://github.com/junegunn/vim-plug
 
 call plug#begin('~/.vim/plugged')
-"Plug 'nightsense/stellarized'                           " Color Theme - Setllarized
-"Plug 'junegunn/seoul256.vim'                            " Color Theme - Seoul
-"Plug 'dracula/vim', { 'as': 'dracula' }                 " Color Theme - Dracula
 Plug 'morhetz/gruvbox'                                  " Color Theme - Gruvbox 
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle' }   " Show Directory folders in tree format
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }      " Plugin for making writing go easier
@@ -18,6 +15,8 @@ Plug 'scrooloose/syntastic'                             " Set syntax correction
 Plug 'townk/vim-autoclose'                              " Autoclose Brackets
 Plug 'artur-shaik/vim-javacomplete2'                    " Autocomplete for Java
 Plug 'ctrlpvim/ctrlp.vim'                               " Fuzzy Search 
+Plug 'majutsushi/tagbar'                                " Displays tgas ordered by scope
+Plug 'python-mode/python-mode', { 'branch': 'develop' } " Lots of fun Python stuff
 call plug#end()
 " }}
 
@@ -30,6 +29,7 @@ nmap <leader>ev :vsplit $MYVIMRC<CR>
 nmap <leader>et :tabnew $MYVIMRC<CR>
 nmap <leader>r  :source $MYVIMRC<CR>
 nmap <leader>nt :NERDTree<CR>
+nmap <leader>tg :TagbarToggle<CR>
 " }}
 
 
@@ -75,14 +75,50 @@ set foldcolumn=3
 set nofoldenable            " don't fold files by default
 " }}
 
+" Utility {{
+set clipboard=unnamed       " Allow copying from outside VIM
+" }}
 
 
 " Plug-In Settings {{
+
+" ========== majutsushi/tagbar ==========
+
+" ========== python-mode =========
+let g:pymode = 1                    " Turn plugin on
+let g:pymode_python = 'python3'     " Set current python version
+let g:pymode_trim_whitespaces = 1   " Trim unused whitespaces on save
+"let g:pymode_options = 1
+let g:pymode_indent = 1             " Enable python indentation
+let g:pymode_warnings = 1           " Turn off super annoying warnings
+let g:pymode_lint = 1               " Code Checking
+let g:pymode_lint_on_fly = 0        " Check code while editing
+let g:pymode_rope_completion = 1    " Turn on autocomplete
+let g:pymode_rope_complete_on_dot=1 " Autocomplete turns on after period in Insert mode
+let g:pymode_syntax = 1
+let g:pymode_syntax_all = 1
+let g:pymode_syntax_builtin_objs = g:pymode_syntax_all
+let g:pymode_lint_ignore = ["E501", "W", "E"]
 
 " ========== itchyny/lightline ==========
 set laststatus=2   
 set noshowmode  
 set t_Co=256
+
+" Replace filename component of lightline statusline
+let g:lightline = {
+    \ 'component_function' : {
+    \   'filename' : 'FilenameForLightline'
+    \ }
+    \ }
+" Show full path of filename
+function! FilenameForLightline()
+        return expand('%')
+endfunction
+
+let g:unite_force_overwrite_statusline = 0
+let g:vimfiler_force_overwrite_statusline = 0
+let g:vimshell_force_overwrite_statusline = 0
 
 " ========== Gruvbox/Vim ==========
 colorscheme gruvbox
@@ -96,34 +132,13 @@ let g:gruvbox_underline = 1         " Enable underlining
 
 
 
-" ========== nightsense/stellarized ==========
-"set t_Co=256
-"set background=dark
-"let g:stellarized_termcolor=256
-"colorscheme stellarized
-
+" ========== NERDTree ==========
+" Files to ignore in NERDTree 
+let NERDTreeIgnore=['\.class$', '\.pyc$']
 
 " ========== vim-go ==========
 autocmd FileType go nmap <leader>gb <Plug>(go-build)
 autocmd FileType go nmap <leader>gr <Plug>(go-run)
-
-
-" ========== Dracula/Vim ==========
-"let g:dracula_bold = 1      " Include bold attributes in highlighting
-"let g:dracula_italic = 1    " Include Italic attributes in highlighting
-"let g:dracula_underline = 1 " Include Underline attributes in highlightin
-"let g:dracula_colorterm = 1 " Include background fill colors
-"let g:airline_theme = 'dracula'
-"set termguicolors
-"colorscheme dracula
-
-" ========== junegunn/seoul256 ==========
-" seoul256 (dark):
-"   Range:   233 (darkest) ~ 239 (lightest)
-"   Default: 237
-"let g:seoul256_background = 233
-"colo seoul256
-
 
 " ========== scrooloose/Syntastic ==========
 set statusline+=%#warningmsg#
